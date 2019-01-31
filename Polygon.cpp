@@ -23,17 +23,17 @@ std::string Polygon::getType() //{return "Polygon"};
 
 double Polygon::area()
 {   
-    double area;
+    double area = 0.0;
     int j = (nrCounter / 2) - 1;
 
     for(int i = 0; i < nrCounter / 2; i++)
     {
-        area += (xCoord[j] + xCoord[i] * yCoord[j] + yCoord[i]);
+        area += (xCoord[j] + xCoord[i]) * (yCoord[j] - yCoord[i]);
         j = i;
-        //std::cout << xCoord[j] << '\n' << xCoord[i] << '\n' << yCoord[j] << '\n' << yCoord[i] << '\n';
     }
 
-    area = abs(area / 2);
+    area = std::abs(area / 2.0);
+    
     return area;
 }
 
